@@ -1,0 +1,234 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Future Access for All</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="stylesheet" type="text/css" href="css/fafa.css" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <script src="js/anime.min.js"></script>
+        <script src="js/chroma.min.js"></script>
+
+        <script>
+         var scale = chroma.scale(['#2929ff', '#8000dd', '#4cbb22']);
+         var gradient = false;
+         var polygon;
+         var logo;
+
+         function getScrollPercent() {
+             var h = document.documentElement,
+                 b = document.body,
+                 st = 'scrollTop',
+                 sh = 'scrollHeight';
+             return (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
+         }
+
+
+         function setup() {
+             document.getElementById('logo').onclick = function(){ gradient = !gradient };
+
+
+             document.querySelectorAll('.alink').forEach(e => {
+                 e.onclick = function () {
+                     window.scrollTo(0, window.scrollY+11);
+                     var y = document.getElementById(e.getAttribute('href').substr(1)).offsetTop;
+                     window.scrollTo({left: 0, top: y-170, behavior: 'smooth'});
+                     console.log(y);
+                     return false;
+                 };
+             });
+
+
+
+             logo = anime({
+                 targets: '#frame .morph',
+                 points: [
+                     { value: [
+                         '63.98,98.22 22.96,72.27 2.16,38.36 37.36,1.4 84.91,1.7 96.36,60.19',
+                         '66.37,97.5 18.75,81.59 2.84,33.97 34.56,2.25 82.18,18.16 98.09,65.78' ]},
+                     { value: '99.08,98.86 1.5,98.86 1.5,34.8 1.5,1.14 99.08,1.14 99.08,64.5' },
+                     { value: '63.98,98.22 22.96,72.27 2.16,38.36 37.36,1.18 84.91,1 96.36,60.19' },
+                     { value: '78.43,99.78 10.32,95.78 1.4,66.76 14.34,1.14 88.14,5.69 100,32.5' },
+                     { value: '99.08,98.86 16.12,98.86 1.5.4,34.8 3.84,1.14 100,1.14 88.63,66.55' },
+                     { value: '63.98,98.22 22.96,72.27 2.1.46,38.36 37.36,1.4 84.91,1.7 96.36,60.19' }
+                 ],
+                 easing: 'easeInOutQuint',
+                 duration: 9000,
+                 loop: true
+             });
+
+             return true;
+         }
+
+         function animateOnReveal() {
+             var els = document.querySelectorAll(".animate");
+             for (var i = 0; i < els.length; i++) {
+                 var windowHeight = window.innerHeight;
+                 var elementTop = els[i].getBoundingClientRect().top;
+                 var elementVisible = 150;
+                 if (elementTop < windowHeight - elementVisible) {
+                     els[i].classList.add("active");
+                 } else {
+                     els[i].classList.remove("active");
+                 }
+             }
+         }
+
+         window.onload = setup;
+
+
+         window.onscroll = function() {
+
+             var header = document.querySelector("nav");
+             var y = window.scrollY;
+
+             if (y > 10) {
+                 header.classList.add('minimal');
+                 if (logo) {
+                     logo.pause();
+                     logo.seek(getScrollPercent()/100*9000);
+
+                 }
+             } else {
+                 header.classList.remove('minimal');
+                 logo.play();
+             }
+
+
+             if (gradient) {
+                 document.querySelector(':root').style.setProperty('--primary-color', scale(window.pageYOffset/document.documentElement.scrollHeight));
+             }
+
+             animateOnReveal();
+         };
+        </script>
+
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">
+            You are using an <strong>outdated</strong> browser. Please
+            <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+            your experience.
+            </p>
+        <![endif]-->
+
+        <nav>
+            <div>
+                <h1 id="logo"><img src="img/fafa_logo.png" alt="Future Access for All">
+                    <svg id="frame" width="100" height="100" viewBox="0 0 100 100">
+                        <g fill="none">
+                            <polygon class="morph" stroke-width="2" stroke="white" points="70 24 119.574 60.369 100.145 117.631 50.855 101.631 3.426 54.369"/>
+                        </g>
+                    </svg>
+                    <span>Future Access for All</span></h1>
+                <h2>
+                    Helping individuals and organizations care for their valuable information assets
+                    through <a href="#consulting" class="alink">consulting,</a> <a href="#training" class="alink">training,</a> and <a href="#coaching" class="alink">coaching</a> using a thoughtful, <a href="#process" class="alink">collaborative process.</a>
+                </h2>
+                <a href="#data" class="beginning alink""><span>Top</span></a>
+            </div>
+        </nav>
+
+        <main>
+            <section class="intro">
+                <h3 id="data">
+                    Data. <span>Digital assets.</span> <span>Born-digital materials.</span>
+                </h3>
+                <p>Depending on who you are and what you do one or more of these terms may describe the kinds of information you are likely creating, collecting, analyzing, using, and sharing all the time. The terms used don’t really matter as much as the potential value contained within these materials. But how do you determine what is valuable? What should you keep? How do you go about caring for what you value? If you are an artist, work at a cultural institution, or direct a nonprofit organization it may feel particularly challenging to start thinking about and taking action to care for valuable information assets.</p>
+
+                <div>
+                <p>Regardless of size or resources, every organization should have the opportunity to be proactive and intentional in ensuring future access to the information they value. But planning for the future is different from focusing on the needs of the current moment.</p>
+
+                <p>My approach focuses on guiding and empowering the people and organizations I work with to integrate the practice of caring for valuable information assets into the creation process itself. I support organizations to make preparing for future access a core part of what they do, not an afterthought. I collaborate with clients to develop a custom strategy that makes sense for their context, provide guidance to help them put that strategy into action, and offer continued support in maintaining and evolving this strategy over time.</p>
+                </div>
+            </section>
+
+            <section class="services">
+                <h3>Services</h3>
+
+                <section id="consulting">
+                    <h4>Consulting</h4>
+                    <div>
+                        <p>I provide consulting services to individuals and organizations seeking to take an intentional approach to caring for and preparing their valuable information assets for future access. My intention is to be a trusted partner for my clients, and I’ve designed my approach to establish trust, understand context, and closely collaborate to make a plan that can be put into action.</p>
+                    </div>
+                </section>
+
+                <section id="training">
+                    <h4>Training</h4>
+                    <div>
+                        <p>I also design, develop, and facilitate custom learning and training experiences to educate and advance the knowledge and practice of individuals and organizations on topics such as digital archives, and digital preservation, and information management. Sometimes I teach courses and workshops that are offered through other organizations, but I also provide tailored training services to fit the specific context and needs of client organizations.</p>
+                    </div>
+                </section>
+                <section id="coaching">
+                    <h4>Coaching</h4>
+                    <div>
+
+                        <p>Through my coaching services, I provide a one-on-one version of training that may include personalized guidance, professional mentorship, and targeted training activities to individuals who are seeking support in areas such as developing digital preservation programs, establishing information management practices, and/or attempting to create more collaborative organizational cultures.</p>
+
+                        <p>To learn more about my training and coaching services, please reach out to me at samalanmeister@gmail.com</p>
+                    </div>
+                </section>
+
+
+            </section>
+
+            <section id="process">
+                <h3>Process</h3>
+                <div class="timeline">
+                    <div class="animate">
+                        <h4>Explore</h4>
+                        <p>First we have a conversation where we discuss your goals, needs, current context, and priorities. I share more details about my services and process, and we start shaping and defining project details including scope, timeline, and budget.</p>
+                    </div>
+
+                    <div class="animate">
+                        <h4>Understand</h4>
+                        <p>Context is key, so initial project activities focus on gathering information to gain deep and meaningful understanding of your current situation. I may ask for and review any existing documentation and have conversations with stakeholders to learn more about your structure, operations, workflows, infrastructure, resources, and future directions. My intention is to understand how information assets are currently created, managed, used, and valued. </p>
+                    </div>
+
+                    <div class="animate">
+                        <h4>Strategize</h4>
+                        <p>Grounded in understanding of your current context, we then begin to engage in the development of a custom strategy to ensure valued information assets are cared for and prepared for future access. This is a highly collaborative process where we define and answer questions such as:
+                            <ul>
+                                <li>What digital materials are you creating that have value and should be kept and cared for?</li>
+                                <li>What changes (to structure, process, technology, skills) are needed to integrate the practice of preparing materials for future access into regular activities? </li>
+                                <li>What investments (in infrastructure, training, etc) need to be made to support these changes?</li>
+                                <li>What is the timeline for implementing these changes?</li>
+                            </ul>
+                        </p>
+
+                        <p>The resulting strategy provides a foundation for growth and a customized and detailed roadmap and set of recommendations for integrating future access into your current production process.</p>
+                    </div>
+
+                    <div class="animate">
+                        <h4>Action + Support</h4>
+                        <p> With a strategy in place you are now ready to take action, to start making caring for valued information assets a core part of what you do. I stick with you to provide guidance and support in navigating these changes. This support may include activities such as strategic visioning and direction setting; knowledge sharing and training; process development and improvement; and the selection and implementation of systems and tools. These shifts can take time, and I’ll be there as long as you need me.</p>
+
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="about">
+                <div class="portrait animate">
+                    <img src="img/sm_blue.jpg">
+                </div>
+                <div>
+                    <h3>About Sam</h3>
+                    <p>I am an archivist and educator who has been working in and with libraries, archives, museums, galleries, artists, and nonprofit organizations for over 15 years. I am drawn to this work because I see the potential for people to create their own archives for their creative practices, their organizations, and their communities. With my consulting practice I am seeking to expand archival thinking and practice to new contexts, to guide and support people in taking action to ensure the digital materials they are creating continue to exist for as long as they need them. Previously, I served as the Preservation Communities Manager at the Educopia Institute, and before that as the Digital Archivist at the University of Montana. I received my M.L.I.S from San Jose State University, and B.A. in Visual Arts from the University of California, San Diego.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <h3>Want to learn more?</h3>
+            <div class="contact"><a href="#">Say Hello.</a></div>
+        </footer>
+    </body>
+</html>
