@@ -156,6 +156,24 @@ nav a.beginning span {
     display: none;
 }
 
+@media screen and (max-width: 600px) {
+    nav.minimal a {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        text-decoration: underline;
+    }
+
+    nav.minimal a:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+        opacity: 0.8;
+    }
+}
+
+
+
 h1, h2, h3, h4 {
     font-weight: normal;
 }
@@ -238,6 +256,14 @@ section {
     margin-top: 2em;
 }
 
+@media screen and (max-width: 600px) {
+    .intro div {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
+
 .intro div p {
     margin-top: 0;
 }
@@ -257,6 +283,18 @@ section {
 
 .services section div {
     flex-basis: 70%;
+}
+
+
+@media screen and (max-width: 600px) {
+    .services section h4 {
+        flex-basis: 100%;
+        margin-bottom: 0;
+    }
+
+    .services section div {
+        flex-basis: 100%;
+    }
 }
 
 .timeline {
