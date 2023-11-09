@@ -1,23 +1,21 @@
 @font-face {
-  font-family: 'Aktual';
+  font-family: 'Sohne';
   font-style: normal;
   font-weight: 400;
-  src:  url('../fonts/test-soehne-buch.woff2') format('woff2');
+  src:  url('../fonts/soehne-buch.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Aktual';
+  font-family: 'Sohne';
   font-style: italic;
   font-weight: 400;
-  src:  url('../fonts/test-soehne-buch-kursiv.woff2') format('woff2');
+  src:  url('../fonts/soehne-buch-kursiv.woff2') format('woff2');
 }
-
 
 
 :root {
     --primary-color: #2929ff;
 }
-
 
 html {
     height: 100%;
@@ -37,7 +35,7 @@ body {
     background: #fff;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
-    font-family: Aktual, Helvetica, sans-serif;
+    font-family: Sohne, Helvetica, sans-serif;
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
 }

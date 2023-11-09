@@ -17,7 +17,6 @@
 
         <script>
          var scale = chroma.scale(['#2929ff', '#8000dd', '#4cbb22']);
-         var gradient = false;
          var polygon;
          var logo;
 
@@ -31,9 +30,6 @@
 
 
          function setup() {
-             document.getElementById('logo').onclick = function(){ gradient = !gradient };
-
-
              document.querySelectorAll('.alink').forEach(e => {
                  e.onclick = function () {
                      window.scrollTo(0, window.scrollY+11);
@@ -97,11 +93,6 @@
              } else {
                  header.classList.remove('minimal');
                  logo.play();
-             }
-
-
-             if (gradient) {
-                 document.querySelector(':root').style.setProperty('--primary-color', scale(window.pageYOffset/document.documentElement.scrollHeight));
              }
 
              animateOnReveal();
