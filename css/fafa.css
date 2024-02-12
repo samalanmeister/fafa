@@ -15,6 +15,7 @@
 
 :root {
     --primary-color: #2929ff;
+    --primary-color-light: rgba(41, 41, 255, 0.1);
 }
 
 html {
@@ -57,6 +58,7 @@ nav {
     font-size: 2.25em;
     padding-top: 2em;
     transition: height 0.12s ease-out;
+    width: 100%;
     z-index: 2;
 }
 
@@ -69,7 +71,8 @@ nav {
 
 nav.minimal {
     height: 150px;
-    font-size: 1em;
+    max-height: 150px;
+    font-size: 1.2em;
     padding-top: 0;
     padding-left: 180px;
     position: fixed;
@@ -295,48 +298,59 @@ section {
     }
 }
 
-.timeline {
-    border-left: 2px solid var(--primary-color);
-    padding-left: 3em;
+.project-table {
+    border-bottom: 2px solid var(--primary-color);
 }
 
+.project-name {
+    border: 2px solid var(--primary-color);
+    padding: 0.5em;
+    font-style: italic;
+    font-size: 1.25em;
+    margin: 0;
+    background-color: var(--primary-color-light);
+    border-bottom: none;
+}
 
-.timeline div {
+.project-table .project-name:last-child {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.project-name:hover {
+    cursor: pointer;
+}
+
+.project-name:before {
+    content: '→';
+    font-style: normal;
+    padding-right: 0.5em;
+}
+
+.project-description {
+    border: 2px solid var(--primary-color);
+    border-bottom: none;
+    padding: 1em 2.25em 2.25em;
+    margin: 0;
+    display: block;
+    max-height: 800px;
+    transition: all .25s ease-in-out;
     position: relative;
-    margin-top: 0;
 }
 
-.timeline div::before {
-    content: '';
+.project-description:last-child {
+    border-bottom: none;
+}
+
+.project-client {
+    border-top: 2px solid var(--primary-color);
+    border-left: 2px solid var(--primary-color);
     position: absolute;
-    width: 1em;
-    height: 1em;
-    background: var(--primary-color);
-    border-radius: 999px;
-    left: -3.65em;
-    border: 3px solid #fff;
-}
-
-.timeline div:last-child {
-    padding-bottom: 1em;
-}
-
-.timeline div:last-child::after {
-    content: '';
-    position: absolute;
-    width: 1em;
-    height: 2px;
-    background: var(--primary-color);
-    left: -3.575em;
+    right: 0;
     bottom: 0;
+    padding: 0.5em;
 }
 
-.timeline h4::before {
-    display: none;
-}
-
-.timeline h4 {
-    padding-top: 0;
+.project-description.hidden {
 }
 
 .about {
@@ -347,16 +361,52 @@ section {
     display: flex;
     align-items: top;
     justify-content: space-between;
+    flex-flow: row wrap;
+    gap: 2em;
+}
+
+.about h3 {
+    flex-basis: 100%;
+    width: 100%;
+    margin-bottom: 0;
 }
 
 .about .portrait {
-   flex-basis: 25%;
    border-radius: 2em;
    overflow: hidden;
-   height: 25%;
-   width: 25%;
-   flex-shrink: 0;
+   height: 100%;
+   flex-shrink: 1;
+   flex: 1 20%;
    padding: 0;
+   justify-content: space-between;
+}
+
+.about .portrait img {
+    width: 100%;
+    display: block;
+}
+
+.about .bio {
+    flex: 2 50%;
+}
+
+.about .bio p {
+    margin: 0;
+}
+
+.about h3 {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .about .portrait {
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    .about .bio {
+        padding-left: 0;
+    }
 }
 
 ul.questions {
@@ -418,21 +468,6 @@ li::before {
     overflow: hidden;
 }
 
-.about .portrait img {
-    width: 100%;
-    display: block;
-}
-
-.about div {
-    flex-basis: 70%;
-    flex-shrink: 1;
-    padding-left: 2em;
-}
-
-.about h3 {
-    margin-top: 0;
-}
-
 .portrait img {
     width: 100%;
 }
@@ -489,6 +524,10 @@ footer .contact:after {
     border-color: #fff transparent;
     display: block;
     width: 0;
+}
+
+.hidden {
+    display: none;
 }
 
 #frame {

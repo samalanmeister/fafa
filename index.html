@@ -58,6 +58,13 @@
                  loop: true
              });
 
+             document.querySelectorAll('.project-description').forEach(e => {
+               e.classList.add('hidden');
+               e.previousElementSibling.onclick = function() {
+                 e.classList.toggle('hidden');
+               }
+             });
+
              return true;
          }
 
@@ -166,39 +173,33 @@
 
             </section>
 
-            <section id="process">
-                <h3>Process</h3>
-                <div class="timeline">
-                    <div class="animate">
-                        <h4>Explore</h4>
-                        <p>First we have a conversation where we discuss your goals, needs, current context, and priorities. I share more details about my services and process, and we start shaping and defining project details including scope, timeline, and budget.</p>
-                    </div>
+            <section id="profiles">
+                <h3>Project Profiles</h3>
+                <div class="project-table">
+                <div class="project-name">
+                    Mapping an Artist’s Creative Process
+                </div>
+                <div class="project-description">In our collaboration with the artist Elana Mann, we sought to document and understand the multiple steps that take place during her creative process, including the various outputs that are produced along the way. From this baseline documentation and conceptualization we worked together to identify what of those digital outputs were valuable for the short, medium, and long term. These conversations and the clarity they produced provided a starting point for developing a strategy to integrate caring for valuable digital assets into Elana’s creative process. This step was also key to helping Elana shift from feeling overwhelmed by the size and scope of her digital assets, to a more grounded understanding of what information was important and worthy of caring for. From this point we could then incorporate new actions into her process that would help to ensure future access to her valuable digital materials, as part of a custom strategy fit to her specific scenario.
+                <div class="project-client">Client: Elana Mann</div>
+                </div>
 
-                    <div class="animate">
-                        <h4>Understand</h4>
-                        <p>Context is key, so the initial focus is on gathering information to gain a deep and meaningful understanding of your current situation.  We have conversations to learn more about your structure, operations, workflows, infrastructure, resources, and future directions. My intention is to understand how information assets are currently created, managed, used, and valued. </p>
-                    </div>
+                <div class="project-name">
+                     Embracing Preservation as a Core Value
+                </div>
+                <div class="project-description">As a small community-based nonprofit organization, the WYSO radio station has been creating and documenting the stories of its community members for decades. Recognizing the value of their historic collection of audiotapes of previously broadcasted programs, they started down the road of digitization to increase access, but realized that something more would be needed to ensure long-term preservation of these materials. We worked with the staff at WYSO to design and build a strategy and policy framework to establish a sustainable archives program. This activity was clearly something new and different for an organization whose primary focus is on creating and broadcasting new content. So our work started with engaging in conversations with internal and external stakeholders to craft and refine a vision, mission, and set of values for an archives program. Our discussions on the purpose and intention of an archives program influenced and impacted a parallel organization-wide strategic planning effort already underway, resulting in the adoption of Preservation as a core organizational value for WYSO. This recognition on the part of the organization’s leadership and staff, of the value of planning and taking action to preserve and ensure future access to significant digital assets is unique for a small community-based radio station and has created a solid foundation upon which a sustainable archives program can be built.
+                <div class="project-client">Client: WYSO</div>
+                </div> 
 
-                    <div class="animate">
-                        <h4>Strategize</h4>
-                        <p>Grounded in understanding of your current context, we then work together to develop a custom strategy to ensure information assets are cared for and prepared for future access. This is a highly collaborative process where we define what digital materials are valuable and why they should be cared for; the changes and investments needed to ensure future access; and a timeline for making changes. The resulting strategy provides a foundation for growth and a customized and detailed roadmap and set of recommendations for integrating future access into your current production process.</p>
-                    </div>
-
-                    <div class="animate">
-                        <h4>Action + Support</h4>
-                        <p> With a strategy in place you are now ready to take action, to start making caring for information assets a core part of what you do. I stick with you to provide guidance and support in navigating these changes, including activities such as strategic visioning; knowledge sharing and training; process development and improvement; and system/tool selection and implementation. These shifts can take time, and I’ll be there as long as you need me.</p>
-
-                    </div>
                 </div>
 
             </section>
 
             <section class="about">
+                <h3>About Sam Meister</h3>
                 <div class="portrait animate">
                     <img src="img/sm_blue.jpg">
                 </div>
-                <div>
-                    <h3>About Sam Meister</h3>
+                <div class="bio">
                     <p>Sam is an archivist and educator based in Columbus, Ohio who has been working in and with libraries, archives, museums, galleries, artists, and nonprofit organizations for over 15 years. He is drawn to this work because he sees the potential for people to create their own archives for their creative practices, their organizations, and their communities. With Future Access For All he is seeking to expand archival thinking and practice to new contexts, to guide and support people in taking action to ensure the digital materials they are creating continue to exist for as long as they need them. Previously, Sam served as the Preservation Communities Manager at the Educopia Institute, and before that as the Digital Archivist at the University of Montana. He received his M.L.I.S from San Jose State University, and B.A. in Visual Arts from the University of California, San Diego.</p>
                 </div>
             </section>
