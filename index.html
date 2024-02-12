@@ -35,11 +35,14 @@
                      window.scrollTo(0, window.scrollY+11);
                      var y = document.getElementById(e.getAttribute('href').substr(1)).offsetTop;
                      window.scrollTo({left: 0, top: y-170, behavior: 'smooth'});
-                     console.log(y);
                      return false;
                  };
              });
 
+            document.querySelector('nav h1').onclick = function() {
+               window.scrollTo({left: 0, top: -170, behavior: 'smooth'});
+            };
+            
 
              logo = anime({
                  targets: '#frame .morph',
@@ -118,7 +121,8 @@
 
         <nav>
             <div>
-                <h1 id="logo"><img src="img/fafa_logo.png" alt="Future Access for All">
+                <h1 id="logo">
+                <img src="img/fafa_logo.png" alt="Future Access for All">
                     <svg id="frame" width="100" height="100" viewBox="0 0 100 100">
                         <g fill="none">
                             <polygon class="morph" stroke-width="2" stroke="white" points="70 24 119.574 60.369 100.145 117.631 50.855 101.631 3.426 54.369"/>
@@ -128,7 +132,7 @@
                 <h2>
                     Helping individuals and organizations care for their valuable information.
                 </h2>
-                <a href="#data" class="beginning alink""><span>Top</span></a>
+                <a href="#data" class="beginning alink"><span>Top</span></a>
             </div>
         </nav>
 

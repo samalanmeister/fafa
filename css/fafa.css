@@ -64,6 +64,10 @@ nav {
 
 
 @media screen and (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+
     nav {
         font-size: 2em;
     }
@@ -84,6 +88,7 @@ nav h1 {
     position: absolute;
     left: 72px;
     top: 0;
+    cursor: pointer;
 }
 
 nav h1 span {
@@ -158,18 +163,13 @@ nav a.beginning span {
 }
 
 @media screen and (max-width: 600px) {
-    nav.minimal a {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        border-radius: 0;
-        text-decoration: underline;
+    nav.minimal h1 {
+        top: 5px;
+        left: 40vw;
     }
 
-    nav.minimal a:hover {
-        background-color: var(--primary-color);
-        color: #fff;
-        opacity: 0.8;
+    nav.minimal h2 {
+        visibility: hidden;
     }
 }
 
@@ -505,6 +505,7 @@ footer .contact {
     position: relative;
 }
 
+
 footer .contact a:link, footer .contact a:visited {
     color: #2929ff;
     color: var(--primary-color);
@@ -525,6 +526,24 @@ footer .contact:after {
     display: block;
     width: 0;
 }
+
+@media screen and (max-width: 600px) {
+    footer h3 {
+        font-size: 1.25em;
+    }
+
+
+    footer .contact {
+        font-size: 1em;
+        height: auto;
+    }
+
+    footer .contact:after {
+        left: 60px;
+    }
+}
+
+
 
 .hidden {
     display: none;
