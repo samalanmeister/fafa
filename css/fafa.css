@@ -226,6 +226,13 @@ section {
   }
 }
 
+
+@media screen and (max-width: 600px) {
+  section {
+      margin: 0 3em 2em 3em;
+  }
+}
+
 .animate {
     opacity: 0;
     transition: 1s all ease;
@@ -302,6 +309,13 @@ section {
     border-bottom: 2px solid var(--primary-color);
 }
 
+
+@media screen and (max-width: 600px) {
+    .project-description {
+        font-size: 0.85em;
+    }
+}
+
 .project-name {
     border: 2px solid var(--primary-color);
     padding: 0.5em;
@@ -329,11 +343,9 @@ section {
 .project-description {
     border: 2px solid var(--primary-color);
     border-bottom: none;
-    padding: 1em 2.25em 2.25em;
+    padding: 1em 2.25em 3.5em;
     margin: 0;
     display: block;
-    max-height: 800px;
-    transition: all .25s ease-in-out;
     position: relative;
 }
 
